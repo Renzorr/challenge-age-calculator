@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="title" content="Age Calculator App">
+  <meta name="description" content="Junior Frontend Mentor Challenge">
+  <link rel="icon" type="image/png" ifzes="32x32" href="./assets/images/favicon-32x32.png" />
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <title>Frontend Mentor | Age calculator app</title>
+</head>
+
+<body>
+  <h1 class="sr-only">Frontend Mentor Age Calculator App</h1>
+  <main>
+    <form class="calculator-container">
+      <fieldset class="calculator-header">
+        <legend class="sr-only">Birthday Date</legend>
+        <div class="calculator-input-item">
+          <label for="day">
+            Day
+          </label>
+          <input type="text" name="day" id="day" class="day" placeholder="dd">
+          <p class="calculator-input-message">This field is required</p>
+        </div>
+
+        <div class="calculator-input-item">
+          <label for="month">
+            Month
+          </label>
+          <input type="text" name="month" id="month" class="month" placeholder="mm">
+          <p class="calculator-input-message">This field is required</p>
+        </div>
+
+        <div class="calculator-input-item">
+          <label for="year">
+            Year
+          </label>
+          <input type="text" name="year" id="year" class="year" placeholder="yyyy">
+          <p class="calculator-input-message">This field is required</p>
+
+        </div>
+      </fieldset>
+
+      <div class="calculator-separator">
+        <div class="line"></div>
+        <button class="calculator-btn" id="calculate">
+          <img src="./assets/images/icon-arrow.svg" alt="">
+          <img src="./assets/images/icon-arrow.svg" alt="">
+        </button>
+      </div>
+
+      <div class="calculator-result-section">
+        <p><span>--</span>years</p>
+        <p><span>--</span>months</p>
+        <p><span>--</span>days</p>
+      </div>
+      </section>
+  </main>
+</body>
+
+</html>
