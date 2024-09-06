@@ -7,6 +7,8 @@
   <meta name="title" content="Age Calculator App">
   <meta name="description" content="Junior Frontend Mentor Challenge">
   <link rel="icon" type="image/png" ifzes="32x32" href="./assets/images/favicon-32x32.png" />
+  <link rel="preload" href="./assets/fonts/poppins-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./assets/fonts/poppins-800.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/index.css">
   <title>Frontend Mentor | Age calculator app</title>
@@ -15,7 +17,7 @@
 <body>
   <h1 class="sr-only">Frontend Mentor Age Calculator App</h1>
   <main>
-    <form class="calculator-container">
+    <form action="" class="calculator-container">
       <fieldset class="calculator-header">
         <legend class="sr-only">Birthday Date</legend>
         <div class="calculator-input-item">
@@ -53,12 +55,16 @@
       </div>
 
       <div class="calculator-result-section">
-        <p><span>--</span>years</p>
-        <p><span>--</span>months</p>
-        <p><span>--</span>days</p>
+        <p><span class="result-year">--</span>years</p>
+        <p><span class="result-month">--</span>months</p>
+        <p><span class="result-day">--</span>days</p>
       </div>
       </section>
+    </form>
   </main>
+
+  <script src="https://unpkg.com/imask"></script>
+  <script src="./index.js"></script>
 </body>
 
 </html>
