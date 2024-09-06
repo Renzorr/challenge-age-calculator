@@ -46,14 +46,14 @@ function calculateChronologicalAge(day, month, year) {
         resultMonth--
     }
 
-    resultYear.textContent = resultYear
-    resultMonth.textContent = resultMonth
-    resultDay.textContent = resultDay
+    $resultYear.textContent = resultYear
+    $resultMonth.textContent = resultMonth
+    $resultDay.textContent = resultDay
 }
 
 function validateInputs() {
     let hasError = false
-    inputFields.forEach((input) => {
+    $inputFields.forEach((input) => {
         if (input.value.trim() === "" || parseInt(input.value) < 0) {
             hasError = true
             input.parentElement.classList.add("error")
@@ -64,23 +64,23 @@ function validateInputs() {
     return hasError
 }
 
-maskInputRange(inputDay, 1, 31)
-maskInputRange(inputMonth, 1, 12)
-maskInputRange(inputYear, 1500, currentYear)
+maskInputRange($inputDay, 1, 31)
+maskInputRange($inputMonth, 1, 12)
+maskInputRange($inputYear, 1500, currentYear)
 
-inputDay.addEventListener("input", (e) => {
+$inputDay.addEventListener("input", (e) => {
     inputDay = parseInt(e.target.value) || 0
 })
 
-inputMonth.addEventListener("input", (e) => {
+$inputMonth.addEventListener("input", (e) => {
     inputMonth = parseInt(e.target.value) || 0
 })
 
-inputYear.addEventListener("input", (e) => {
+$inputYear.addEventListener("input", (e) => {
     inputYear = parseInt(e.target.value) || 0
 })
 
-form.addEventListener("submit", (e) => {
+$form.addEventListener("submit", (e) => {
     e.preventDefault()
     if (!validateInputs()) {
         calculateChronologicalAge(inputDay, inputMonth, inputYear)
