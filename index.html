@@ -24,40 +24,50 @@
           <label for="day">
             Day
           </label>
-          <input type="text" name="day" id="day" class="day" placeholder="dd">
-          <p class="calculator-input-message">This field is required</p>
+          <input type="text" name="day" id="day" class="day" placeholder="dd" aria-describedby="day-error">
+          <p class="calculator-input-message" id="day-error" aria-hidden="true">This field is required</p>
         </div>
 
         <div class="calculator-input-item">
           <label for="month">
             Month
           </label>
-          <input type="text" name="month" id="month" class="month" placeholder="mm">
-          <p class="calculator-input-message">This field is required</p>
+          <input type="text" name="month" id="month" class="month" placeholder="mm" aria-describedby="month-error">
+          <p class="calculator-input-message" id="month-error" aria-hidden="true">This field is required</p>
         </div>
 
         <div class="calculator-input-item">
           <label for="year">
             Year
           </label>
-          <input type="text" name="year" id="year" class="year" placeholder="yyyy">
-          <p class="calculator-input-message">This field is required</p>
-
+          <input type="text" name="year" id="year" class="year" placeholder="yyyy" aria-describedby="year-error">
+          <p class="calculator-input-message" id="year-error" aria-hidden="true">This field is required</p>
         </div>
       </fieldset>
 
       <div class="calculator-separator">
         <div class="line"></div>
-        <button class="calculator-btn" id="calculate">
+        <button class="calculator-btn" id="calculate" aria-label="Calculate chronological age">
           <img src="./assets/images/icon-arrow.svg" alt="">
           <img src="./assets/images/icon-arrow.svg" alt="">
         </button>
       </div>
 
-      <div class="calculator-result-section">
-        <p><span class="result-year">--</span>years</p>
-        <p><span class="result-month">--</span>months</p>
-        <p><span class="result-day">--</span>days</p>
+      <div class="calculator-result-section" aria-label="Results" aria-live="polite">
+        <div class="calculator-results">
+          <div class="result-year"><span>--</span></div>
+          <p>years</p>
+        </div>
+
+        <div class="calculator-results">
+          <div class="result-month"><span>--</span></div>
+          <p>months</p>
+        </div>
+
+        <div class="calculator-results">
+          <div class="result-day"><span>--</span></div>
+          <p>days</p>
+        </div>
       </div>
       </section>
     </form>
