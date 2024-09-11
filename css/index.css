@@ -1,4 +1,3 @@
-/* VARIABLES */
 :root {
     --white: #ffffff;
     --light-gray: #f0f0f0;
@@ -7,13 +6,10 @@
     --black: #151515;
     --purple: #854dff;
     --light-red: #ff5757;
-
     --rounded: 1.5rem;
-
     --size: clamp(3.8em, 15vw, 7.5em);
 }
 
-/* UTILITIES */
 .sr-only {
     position: absolute;
     width: 0;
@@ -22,7 +18,6 @@
     pointer-events: none;
 }
 
-/* STYLES */
 body {
     font-family: "Poppins", sans-serif;
     background-color: var(--light-gray);
@@ -39,7 +34,6 @@ main {
     padding-inline: 15px;
 }
 
-/* CALCULATOR CONTAINER */
 .calculator-container {
     width: 100%;
     max-width: 845px;
@@ -49,7 +43,6 @@ main {
     padding: 60px calc(var(--size) * 0.46);
 }
 
-/* CALCULATOR HEADER */
 .calculator-header {
     display: flex;
     gap: clamp(20px, 8cqw, 30px);
@@ -98,7 +91,6 @@ main {
     transition: margin 0.3s, opacity 0.5s;
 }
 
-/* CALCULATOR SEPARATOR */
 .calculator-separator {
     position: relative;
     display: flex;
@@ -151,27 +143,41 @@ main {
     top: 50%;
 }
 
-/* CALCULATOR RESULT */
 .calculator-result-section {
     display: flex;
     flex-direction: column;
     gap: 15px;
     margin-top: 8px;
+}
 
-    & p {
-        font-size: clamp(52px, 10cqw, 102px);
-        font-weight: 800;
-        font-style: italic;
-        line-height: 1;
+.calculator-results {
+    display: flex;
+    align-items: center;
+    font-size: clamp(50px, 10cqw, 102px);
+    font-weight: 800;
+    font-style: italic;
+    line-height: 1;
+}
+
+.calculator-results span {
+    color: var(--purple);
+    padding-right: clamp(5px, 3cqw, 30px);
+}
+
+.reveal {
+    animation: revealAnimation 0.9s forwards;
+}
+
+@keyframes revealAnimation {
+    0% {
+        clip-path: inset(100% 0 0 0);
     }
 
-    & span {
-        margin-right: clamp(15px, 4cqw, 25px);
-        color: var(--purple);
+    to {
+        clip-path: inset(0% 0 0 0);
     }
 }
 
-/* ERROR CLASS */
 .calculator-input-item.error label {
     color: var(--light-red);
 }
@@ -185,7 +191,6 @@ main {
     opacity: 1;
 }
 
-/* MEDIA QUERIES */
 @media (width < 768px) {
     .calculator-separator {
         margin-block: 30px;
