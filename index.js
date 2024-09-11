@@ -3,9 +3,6 @@ const $inputDay = document.querySelector(".day")
 const $inputMonth = document.querySelector(".month")
 const $inputYear = document.querySelector(".year")
 const $inputFields = document.querySelectorAll("input")
-const $resultYear = document.querySelector(".result-year")
-const $resultMonth = document.querySelector(".result-month")
-const $resultDay = document.querySelector(".result-day")
 
 const date = new Date()
 const currentYear = date.getFullYear()
@@ -28,6 +25,17 @@ function getDaysOfMonth(month, year) {
     return new Date(year, month, 0).getDate()
 }
 
+function updateResult(resultSelector, value) {
+    const $result = document.querySelector(resultSelector)
+    const $newSpan = document.createElement("span")
+
+    $newSpan.textContent = value
+    $newSpan.classList.add("reveal")
+
+    $result.appendChild($newSpan)
+    $result.removeChild($result.firstChild)
+}
+
 function calculateChronologicalAge(day, month, year) {
     let resultYear = currentYear - year
     let resultMonth = currentMonth - month
@@ -46,21 +54,28 @@ function calculateChronologicalAge(day, month, year) {
         resultMonth--
     }
 
-    $resultYear.textContent = resultYear
-    $resultMonth.textContent = resultMonth
-    $resultDay.textContent = resultDay
+    updateResult(".result-year", resultYear)
+    updateResult(".result-month", resultMonth)
+    updateResult(".result-day", resultDay)
 }
 
-function validateInputs() {
+function hasError() {
     let hasError = false
+
     $inputFields.forEach((input) => {
+        const errorId = input.getAttribute("aria-describedby")
+        const errorMessage = document.getElementById(errorId)
+
         if (input.value.trim() === "" || parseInt(input.value) < 0) {
             hasError = true
             input.parentElement.classList.add("error")
+            errorMessage.setAttribute("aria-hidden", "false")
         } else {
             input.parentElement.classList.remove("error")
+            errorMessage.setAttribute("aria-hidden", "true")
         }
     })
+
     return hasError
 }
 
@@ -82,7 +97,8 @@ $inputYear.addEventListener("input", (e) => {
 
 $form.addEventListener("submit", (e) => {
     e.preventDefault()
-    if (!validateInputs()) {
+
+    if (!hasError()) {
         calculateChronologicalAge(inputDay, inputMonth, inputYear)
     }
 })
